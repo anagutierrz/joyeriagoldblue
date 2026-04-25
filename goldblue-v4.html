@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Blue — Anillos de Compromiso Personalizados | Santo Domingo, RD</title>
+<meta name="description" content="Fabricamos anillos de compromiso únicos en oro 14k y 18k. Diseño 3D personalizado, entrega garantizada en República Dominicana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --g:#B8922A;--g2:#D4A843;--g3:#8a6a1a;--gpale:#FBF5E6;--gborder:rgba(184,146,42,.2);
+  --ink:#1A1714;--ink2:#3a3430;--gray:#7a7470;--gray-lt:#f5f3f0;--gray-md:#e8e4de;
+  --white:#ffffff;--r:14px;--rs:10px;--tr:.28s ease;
+}
+html{scroll-behavior:smooth}
+body{background:var(--white);color:var(--ink);font-family:'Jost',sans-serif;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+img{display:block;max-width:100%}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#f0ede8}
+::-webkit-scrollbar-thumb{background:var(--g3);border-radius:2px}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:200;height:68px;display:flex;align-items:center;padding:0 48px;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--gborder);transition:box-shadow var(--tr)}
+#nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.07)}
+.nav-logo img{height:44px;object-fit:contain}
+.nav-links{display:flex;gap:28px;list-style:none;margin:0 auto}
+.nav-links a{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);transition:color var(--tr);font-weight:500}
+.nav-links a:hover{color:var(--g)}
+.nav-cta{background:var(--g);color:#fff;border:none;padding:10px 24px;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:600;border-radius:100px;cursor:pointer;transition:background var(--tr);white-space:nowrap;flex-shrink:0}
+.nav-cta:hover{background:var(--g2)}
+
+/* HERO */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:68px;background:var(--white)}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 64px}
+.hero-kicker{display:inline-flex;align-items:center;gap:8px;font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g);margin-bottom:20px;font-weight:600}
+.hero-kicker::before{content:'';width:18px;height:1.5px;background:var(--g)}
+.hero-h1{font-family:'Playfair Display',serif;font-size:clamp(2.6rem,4.5vw,4rem);font-weight:700;line-height:1.06;color:var(--ink);margin-bottom:20px}
+.hero-h1 em{font-style:italic;color:var(--g)}
+.hero-p{font-size:.9rem;line-height:1.9;color:var(--gray);max-width:400px;margin-bottom:36px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn-prim{background:var(--g);color:#fff;border:none;padding:14px 30px;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:600;border-radius:100px;cursor:pointer;transition:all var(--tr);display:inline-flex;align-items:center;gap:8px}
+.btn-prim:hover{background:var(--g2);transform:translateY(-2px)}
+.btn-sec{background:transparent;color:var(--ink);border:1.5px solid var(--gray-md);padding:14px 30px;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;border-radius:100px;cursor:pointer;transition:all var(--tr)}
+.btn-sec:hover{border-color:var(--g);color:var(--g)}
+.hero-trust{display:flex;gap:28px;margin-top:44px;padding-top:32px;border-top:1px solid var(--gray-md)}
+.trust-item .t-num{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--g);line-height:1}
+.trust-item .t-lbl{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-top:3px}
+
+.hero-right{position:relative;overflow:hidden;background:var(--gray-lt);border-radius:0 0 0 80px}
+.hero-img-wrap{width:100%;height:100%;min-height:600px;position:relative;overflow:hidden}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,rgba(255,255,255,.15),transparent)}
+.hero-badge{position:absolute;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);border:1px solid var(--gborder);border-radius:14px;padding:12px 18px}
+.hero-badge.b1{bottom:100px;left:24px}
+.hero-badge.b2{top:80px;right:24px}
+.hb-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--g);margin-bottom:3px;font-weight:600}
+.hb-val{font-size:.85rem;font-weight:500;color:var(--ink)}
+
+/* SECTION */
+.sec{padding:90px 64px}
+.sec-alt{background:var(--gray-lt)}
+.stag{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g);font-weight:600;display:flex;align-items:center;gap:10px;margin-bottom:14px}
+.stag::before{content:'';width:16px;height:1.5px;background:var(--g)}
+.sh2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,3.2vw,2.9rem);font-weight:500;line-height:1.12;color:var(--ink)}
+.sh2 em{font-style:italic;color:var(--g)}
+.sp{font-size:.88rem;line-height:1.9;color:var(--gray);max-width:480px;margin-top:12px}
+
+/* CATEGORIES */
+.cats-wrap{padding:0 64px 80px;background:var(--white)}
+.cats-head{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:28px}
+.arr-btns{display:flex;gap:8px}
+.arr-btn{width:38px;height:38px;border:1.5px solid var(--gray-md);background:transparent;color:var(--ink);border-radius:50%;cursor:pointer;font-size:14px;display:flex;align-items:center;justify-content:center;transition:all var(--tr)}
+.arr-btn:hover{background:var(--g);border-color:var(--g);color:#fff}
+.cats-track{display:flex;gap:18px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;padding-bottom:4px}
+.cats-track::-webkit-scrollbar{display:none}
+.cat-card{flex:0 0 260px;border-radius:var(--r);overflow:hidden;cursor:pointer;transition:all var(--tr);border:1px solid var(--gray-md);background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.04)}
+.cat-card:hover{border-color:var(--g);transform:translateY(-5px);box-shadow:0 12px 32px rgba(184,146,42,.15)}
+.cat-img-wrap{height:190px;overflow:hidden;position:relative;background:var(--gray-lt)}
+.cat-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.cat-card:hover .cat-img-wrap img{transform:scale(1.06)}
+.cat-body{padding:18px 20px 20px}
+.cat-sup{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:5px;font-weight:600}
+.cat-name{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:500;color:var(--ink);margin-bottom:12px}
+.cat-link{font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g);display:inline-flex;align-items:center;gap:6px;transition:gap var(--tr);font-weight:500}
+.cat-card:hover .cat-link{gap:10px}
+
+/* CATALOG — REORGANIZED */
+.catalog-section{padding:80px 64px;background:var(--white)}
+.catalog-tabs{display:flex;gap:0;margin-bottom:40px;border-bottom:2px solid var(--gray-md)}
+.ctab{padding:12px 24px;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:600;color:var(--gray);background:none;border:none;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:all var(--tr)}
+.ctab.on{color:var(--g);border-bottom-color:var(--g)}
+.ctab:hover{color:var(--ink)}
+
+/* Featured 3-column hero card layout */
+.cat-featured{display:grid;grid-template-columns:1.4fr 1fr 1fr;grid-template-rows:auto auto;gap:16px;margin-bottom:16px}
+.cat-featured .prod-card:first-child{grid-row:1/3}
+.cat-featured .prod-card:first-child .prod-img{height:440px}
+
+/* Grid for rest */
+.cat-row{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+
+/* Single card styles (shared) */
+.prod-card{border-radius:var(--r);overflow:hidden;cursor:pointer;border:1px solid var(--gray-md);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:all var(--tr)}
+.prod-card:hover{border-color:var(--g);transform:translateY(-5px);box-shadow:0 12px 28px rgba(184,146,42,.13)}
+.prod-img{height:210px;overflow:hidden;background:var(--gray-lt);position:relative}
+.prod-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.prod-card:hover .prod-img img{transform:scale(1.07)}
+.prod-badge{position:absolute;top:10px;left:10px;padding:4px 10px;font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;border-radius:100px}
+.pb-g{background:var(--g);color:#fff}
+.pb-o{background:rgba(255,255,255,.9);border:1px solid var(--g);color:var(--g)}
+.prod-wish{position:absolute;top:10px;right:10px;width:30px;height:30px;background:rgba(255,255,255,.9);border:1px solid var(--gray-md);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;cursor:pointer;color:var(--gray);transition:all var(--tr)}
+.prod-wish:hover{color:var(--g);border-color:var(--g)}
+.prod-body{padding:14px 16px 16px}
+.prod-name{font-family:'Playfair Display',serif;font-size:.95rem;font-weight:500;color:var(--ink);margin-bottom:3px}
+.prod-spec{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
+.prod-foot{display:flex;align-items:center;justify-content:space-between}
+.prod-price{font-size:.85rem;color:var(--g);font-weight:600}
+.prod-btn{padding:7px 14px;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;background:var(--g);color:#fff;border:none;border-radius:100px;cursor:pointer;font-family:'Jost',sans-serif;font-weight:600;transition:background var(--tr)}
+.prod-btn:hover{background:var(--g2)}
+
+/* CTA row within catalog */
+.cat-cta-row{display:flex;align-items:center;justify-content:space-between;margin-top:32px;padding-top:24px;border-top:1px solid var(--gray-md)}
+.cat-cta-text{font-size:.85rem;color:var(--gray)}
+.cat-cta-text strong{color:var(--ink);font-weight:600}
+
+/* MODAL */
+.modal-bg{display:none;position:fixed;inset:0;background:rgba(20,15,10,.75);z-index:500;align-items:center;justify-content:center;backdrop-filter:blur(6px)}
+.modal-bg.open{display:flex}
+.modal-box{background:#fff;border-radius:20px;max-width:740px;width:92vw;max-height:88vh;overflow:hidden;display:grid;grid-template-columns:1fr 1fr;position:relative;box-shadow:0 24px 80px rgba(0,0,0,.2)}
+.modal-close{position:absolute;top:14px;right:14px;background:var(--gray-lt);border:none;color:var(--gray);width:32px;height:32px;border-radius:50%;font-size:16px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all var(--tr);z-index:1;line-height:1}
+.modal-close:hover{background:var(--g);color:#fff}
+.modal-img-side{background:var(--gray-lt);overflow:hidden}
+.modal-img-side img{width:100%;height:100%;object-fit:cover;min-height:340px}
+.modal-info-side{padding:32px 28px;overflow-y:auto;display:flex;flex-direction:column;gap:12px}
+.modal-tag{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g);font-weight:600}
+.modal-title{font-family:'Playfair Display',serif;font-size:1.55rem;font-weight:500;color:var(--ink);line-height:1.2}
+.modal-price{font-size:1.05rem;color:var(--g);font-weight:600}
+.modal-hr{height:1px;background:var(--gray-md)}
+.modal-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ms label{display:block;font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray);margin-bottom:3px}
+.ms span{font-size:.82rem;color:var(--ink);font-weight:500}
+.modal-acts{display:flex;flex-direction:column;gap:8px;margin-top:auto}
+.ma-btn{padding:12px;font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:600;border-radius:100px;cursor:pointer;text-align:center;transition:all var(--tr);border:none}
+.ma-gold{background:var(--g);color:#fff}
+.ma-out{background:transparent;color:var(--g);border:1.5px solid rgba(184,146,42,.4)}
+.ma-btn:hover{opacity:.85;transform:translateY(-1px)}
+
+/* PROCESS SCROLL — IMMERSIVE */
+.process-wrap{display:grid;grid-template-columns:1fr 1fr;background:var(--white)}
+
+/* LEFT sticky panel */
+.proc-sticky{position:sticky;top:68px;height:calc(100vh - 68px);display:flex;align-items:center;justify-content:center;background:var(--gpale);overflow:hidden}
+.proc-sticky::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 50%,rgba(184,146,42,.08) 0%,transparent 70%)}
+
+.proc-canvas{width:360px;height:360px;position:relative;display:flex;align-items:center;justify-content:center}
+
+/* Big photo ring */
+.stage-vis{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1);transform:scale(.92)}
+.stage-vis.on{opacity:1;transform:scale(1)}
+
+.sv-photo-ring{width:280px;height:280px;border-radius:50%;overflow:hidden;position:relative;border:3px solid var(--g);box-shadow:0 0 0 8px rgba(184,146,42,.1),0 0 0 16px rgba(184,146,42,.05),0 20px 60px rgba(184,146,42,.2)}
+.sv-photo-ring img{width:100%;height:100%;object-fit:cover;transition:transform .8s ease}
+.stage-vis.on .sv-photo-ring img{transform:scale(1.04)}
+
+/* Step number badge inside photo */
+.sv-step-badge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:var(--g);color:#fff;padding:6px 16px;border-radius:100px;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;white-space:nowrap;box-shadow:0 4px 16px rgba(184,146,42,.4)}
+
+/* Rotating orbital rings */
+.orb{position:absolute;border-radius:50%;border:1px solid var(--gborder);pointer-events:none}
+.orb1{width:312px;height:312px;border-style:dashed;animation:spin 25s linear infinite}
+.orb2{width:350px;height:350px;animation:spin 35s linear reverse infinite}
+.orb3{width:390px;height:390px;border-style:dashed;border-color:rgba(184,146,42,.08);animation:spin 45s linear infinite}
+
+/* Progress bar at bottom */
+.proc-progress-bar{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);width:160px;height:3px;background:rgba(184,146,42,.15);border-radius:2px;overflow:hidden}
+.proc-progress-fill{height:100%;background:var(--g);border-radius:2px;width:0%;transition:width .5s cubic-bezier(.4,0,.2,1)}
+
+/* Step counter */
+.proc-counter{position:absolute;top:28px;right:28px;font-family:'Playfair Display',serif;font-size:.75rem;color:var(--g3)}
+.proc-counter strong{font-size:1.4rem;font-weight:700;color:var(--g)}
+
+/* RIGHT steps column */
+.proc-steps{padding:80px 60px 80px 56px}
+
+.ps-item{padding:0;margin-bottom:0;border-bottom:1px solid var(--gray-md);overflow:hidden;transition:all .45s cubic-bezier(.4,0,.2,1)}
+.ps-item:first-of-type{border-top:1px solid var(--gray-md)}
+
+/* Collapsed state */
+.ps-inner{padding:22px 0;display:flex;align-items:center;gap:16px;cursor:default}
+.ps-num{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--gray-md);display:flex;align-items:center;justify-content:center;font-size:.65rem;font-weight:700;color:var(--gray);transition:all .4s;flex-shrink:0;letter-spacing:.05em}
+.ps-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:500;color:var(--ink);transition:all .35s;line-height:1.2}
+
+/* Active state */
+.ps-item.on{background:var(--gpale)}
+.ps-item.on .ps-inner{padding:28px 20px 0}
+.ps-item.on .ps-num{background:var(--g);border-color:var(--g);color:#fff;box-shadow:0 4px 14px rgba(184,146,42,.35)}
+.ps-item.on .ps-title{color:var(--g)}
+
+/* Expandable body */
+.ps-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .4s ease;padding:0 20px}
+.ps-item.on .ps-body{max-height:200px;opacity:1;padding:12px 20px 28px}
+.ps-body p{font-size:.85rem;line-height:1.9;color:var(--gray);margin-bottom:14px}
+.ps-wa{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);background:none;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-weight:700;display:inline-flex;align-items:center;gap:6px;padding:0;transition:gap .2s}
+.ps-wa:hover{gap:10px}
+
+/* DIAMOND ROW */
+.diam-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.diam-list{display:flex;flex-direction:column;gap:14px}
+.diam-card{background:#fff;border:1px solid var(--gray-md);border-radius:var(--rs);padding:14px;display:flex;align-items:center;gap:14px;cursor:pointer;transition:all var(--tr)}
+.diam-card:hover{border-color:var(--g);box-shadow:0 6px 20px rgba(184,146,42,.1)}
+.diam-thumb{width:64px;height:64px;border-radius:var(--rs);overflow:hidden;flex-shrink:0;background:var(--gray-lt)}
+.diam-thumb img{width:100%;height:100%;object-fit:cover}
+.diam-info{flex:1}
+.diam-name{font-family:'Playfair Display',serif;font-size:.9rem;font-weight:500;color:var(--ink);margin-bottom:2px}
+.diam-spec{font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray)}
+.diam-price{font-size:.88rem;color:var(--g);font-weight:600;flex-shrink:0}
+
+/* BLOG */
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;margin-top:48px}
+.blog-card{border-radius:var(--r);overflow:hidden;cursor:pointer;border:1px solid var(--gray-md);background:#fff;box-shadow:0 2px 10px rgba(0,0,0,.04);transition:all var(--tr)}
+.blog-card:hover{border-color:var(--g);transform:translateY(-4px);box-shadow:0 12px 28px rgba(184,146,42,.12)}
+.blog-img{height:185px;overflow:hidden;background:var(--gray-lt)}
+.blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.blog-card:hover .blog-img img{transform:scale(1.06)}
+.blog-body{padding:20px}
+.blog-tag{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--g);margin-bottom:8px;font-weight:600}
+.blog-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:500;color:var(--ink);line-height:1.35;margin-bottom:7px}
+.blog-excerpt{font-size:.76rem;color:var(--gray);line-height:1.8}
+.blog-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--gray-md)}
+.blog-date{font-size:.62rem;color:var(--gray)}
+.blog-read{font-size:.6rem;letter-spacing:.12em;text-transform:uppercase;color:var(--g);font-weight:600}
+
+/* TESTIMONIALS */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.testi-card{background:#fff;border:1px solid var(--gray-md);border-radius:var(--r);padding:32px 26px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.t-stars{color:var(--g);letter-spacing:3px;font-size:.75rem;margin-bottom:14px}
+.t-quote{font-family:'Playfair Display',serif;font-size:.95rem;font-style:italic;line-height:1.75;color:var(--ink2);margin-bottom:18px}
+.t-auth{display:flex;align-items:center;gap:10px}
+.t-av{width:36px;height:36px;border-radius:50%;background:var(--gpale);border:1.5px solid var(--g);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;color:var(--g3)}
+.t-name{font-size:.8rem;font-weight:600;color:var(--ink);margin-bottom:1px}
+.t-role{font-size:.62rem;color:var(--gray)}
+
+/* CTA FINAL */
+.cta-sec{padding:110px 64px;background:var(--ink);text-align:center;position:relative;overflow:hidden}
+.cta-sec::before,.cta-sec::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);border-radius:50%;border:1px solid rgba(184,146,42,.1)}
+.cta-sec::before{width:600px;height:600px}
+.cta-sec::after{width:380px;height:380px;border-color:rgba(184,146,42,.15)}
+.cta-tag{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--g2);margin-bottom:16px;position:relative}
+.cta-h2{font-family:'Playfair Display',serif;font-size:clamp(2rem,4vw,3.4rem);font-weight:500;color:#fff;line-height:1.1;margin-bottom:14px;position:relative}
+.cta-h2 em{font-style:italic;color:var(--g2)}
+.cta-p{font-size:.88rem;color:rgba(255,255,255,.5);margin:0 auto 36px;max-width:420px;line-height:1.85;position:relative}
+.cta-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative}
+.btn-white{background:#fff;color:var(--ink);border:none;padding:14px 30px;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:600;border-radius:100px;cursor:pointer;transition:all var(--tr)}
+.btn-white:hover{background:var(--g2);color:#fff}
+.btn-out-w{background:transparent;color:rgba(255,255,255,.7);border:1.5px solid rgba(255,255,255,.2);padding:14px 30px;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;font-family:'Jost',sans-serif;font-weight:500;border-radius:100px;cursor:pointer;transition:all var(--tr)}
+.btn-out-w:hover{border-color:var(--g2);color:var(--g2)}
+.cta-note{font-size:.65rem;color:rgba(255,255,255,.28);margin-top:20px;letter-spacing:.08em;position:relative}
+
+/* FOOTER */
+footer{background:#fff;border-top:1px solid var(--gray-md);padding:36px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.f-logo img{height:36px;object-fit:contain}
+.f-copy{font-size:.7rem;color:var(--gray)}
+.f-links{display:flex;gap:20px}
+.f-links a{font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray);transition:color var(--tr)}
+.f-links a:hover{color:var(--g)}
+
+/* WA FLOAT */
+#wa-float{position:fixed;bottom:24px;right:24px;z-index:300;background:#25D366;border:none;border-radius:50%;width:54px;height:54px;cursor:pointer;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 24px rgba(37,211,102,.4);transition:transform var(--tr);animation:waPulse 3s infinite}
+#wa-float:hover{transform:scale(1.1)}
+#wa-float svg{width:26px;height:26px;fill:#fff}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .65s ease,transform .65s ease}
+.reveal.in{opacity:1;transform:none}
+
+/* ANIMATIONS */
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes waPulse{0%,100%{box-shadow:0 4px 24px rgba(37,211,102,.4)}50%{box-shadow:0 4px 36px rgba(37,211,102,.65)}}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:100px 28px 48px}
+  .hero-right{min-height:380px;border-radius:0}
+  .prod-layout{grid-template-columns:1fr;gap:28px}
+  .process-wrap{grid-template-columns:1fr}
+  .proc-sticky{display:none}
+  .proc-steps{padding:60px 28px}
+  .diam-grid{grid-template-columns:1fr;gap:36px}
+  .testi-grid{grid-template-columns:1fr}
+  .sec{padding:64px 28px}
+  .cats-wrap{padding:0 28px 60px}
+  footer{padding:28px;flex-direction:column;text-align:center}
+  #nav{padding:0 20px}
+  .nav-links{display:none}
+}
+@media(max-width:640px){
+  .hero-h1{font-size:2.2rem}
+  .modal-box{grid-template-columns:1fr}
+  .modal-img-side{min-height:200px}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <img src="data:image/png;base64,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" alt="Gold Blue - Más que Joyería">
+  </div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#coleccion">Colección</a></li>
+    <li><a href="#proceso">Personalización</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-cta" onclick="openWA('Hola Gold Blue, me gustaría cotizar una joya')">Cotizar ahora</button>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-left reveal">
+    <div class="hero-kicker">Joyería artesanal · Santo Domingo, RD</div>
+    <h1 class="hero-h1">El anillo que<br><em>marcará tu historia</em></h1>
+    <p class="hero-p">Diseñamos y fabricamos piezas únicas en oro 14k y 18k. Desde el boceto hasta la joya en tus manos — proceso artesanal con tecnología 3D.</p>
+    <div class="hero-btns">
+      <button class="btn-prim" onclick="openWA('Quiero diseñar mi anillo personalizado')">Diseñar mi anillo</button>
+      <button class="btn-sec" onclick="document.getElementById('coleccion').scrollIntoView({behavior:'smooth'})">Ver colección</button>
+    </div>
+    <div class="hero-trust">
+      <div class="trust-item"><div class="t-num">500+</div><div class="t-lbl">Joyas creadas</div></div>
+      <div class="trust-item"><div class="t-num">14k</div><div class="t-lbl">Oro certificado</div></div>
+      <div class="trust-item"><div class="t-num">15d</div><div class="t-lbl">Entrega máx.</div></div>
+    </div>
+  </div>
+  <div class="hero-right reveal">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80" alt="Anillo de compromiso Gold Blue" loading="eager">
+      <div class="hero-img-overlay"></div>
+    </div>
+    <div class="hero-badge b1">
+      <div class="hb-label">Material</div>
+      <div class="hb-val">Oro 18k · Diamante</div>
+    </div>
+    <div class="hero-badge b2">
+      <div class="hb-label">Proceso</div>
+      <div class="hb-val">Diseño 3D incluido</div>
+    </div>
+  </div>
+</section>
+
+<!-- CATÁLOGO REORGANIZADO -->
+<section class="catalog-section" id="coleccion">
+  <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:8px" class="reveal">
+    <div>
+      <div class="stag">Colección</div>
+      <h2 class="sh2">Joyas que <em>enamoran</em></h2>
+    </div>
+    <button class="btn-prim" onclick="openWA('Quiero diseñar mi anillo personalizado')">Diseñar el mío →</button>
+  </div>
+  <div class="catalog-tabs reveal" id="catTabs">
+    <button class="ctab on" onclick="switchTab('todos',this)">Todos</button>
+    <button class="ctab" onclick="switchTab('compromiso',this)">Compromiso</button>
+    <button class="ctab" onclick="switchTab('bodas',this)">Bodas</button>
+    <button class="ctab" onclick="switchTab('solitario',this)">Solitarios</button>
+    <button class="ctab" onclick="switchTab('personalizado',this)">Personalizable</button>
+  </div>
+  <div id="catFeatured" class="cat-featured reveal"></div>
+  <div id="catRow" class="cat-row reveal"></div>
+  <div class="cat-cta-row reveal">
+    <div class="cat-cta-text">¿No encuentras lo que buscas? <strong>Creamos tu diseño desde cero.</strong></div>
+    <button class="btn-sec" onclick="openWA('Quiero un diseño personalizado que no está en el catálogo')">Diseño exclusivo →</button>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-bg" id="modal" onclick="closeModal(event)">
+  <div style="position:relative" onclick="event.stopPropagation()">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-box">
+      <div class="modal-img-side" id="mImg"></div>
+      <div class="modal-info-side" id="mInfo"></div>
+    </div>
+  </div>
+</div>
+
+<!-- PROCESO SCROLL INMERSIVO -->
+<section id="proceso">
+  <div class="process-wrap">
+
+    <!-- STICKY LEFT: big ring photo changes on scroll -->
+    <div class="proc-sticky">
+      <div class="proc-counter"><strong id="procNum">1</strong> / 5</div>
+      <div class="proc-canvas">
+        <div class="orb orb1"></div>
+        <div class="orb orb2"></div>
+        <div class="orb orb3"></div>
+
+        <div class="stage-vis on" id="sv1">
+          <div class="sv-photo-ring">
+            <img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=85" alt="Diseño personalizado">
+          </div>
+          <div class="sv-step-badge">01 · Diseño personalizado</div>
+        </div>
+
+        <div class="stage-vis" id="sv2">
+          <div class="sv-photo-ring">
+            <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=400&q=85" alt="Modelado 3D">
+          </div>
+          <div class="sv-step-badge">02 · Modelado en 3D</div>
+        </div>
+
+        <div class="stage-vis" id="sv3">
+          <div class="sv-photo-ring">
+            <img src="https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=400&q=85" alt="Impresión en cera">
+          </div>
+          <div class="sv-step-badge">03 · Impresión en cera</div>
+        </div>
+
+        <div class="stage-vis" id="sv4">
+          <div class="sv-photo-ring">
+            <img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=400&q=85" alt="Fundición artesanal">
+          </div>
+          <div class="sv-step-badge">04 · Fundición artesanal</div>
+        </div>
+
+        <div class="stage-vis" id="sv5">
+          <div class="sv-photo-ring">
+            <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=85" alt="Tu joya lista">
+          </div>
+          <div class="sv-step-badge">05 · Tu joya, lista ✦</div>
+        </div>
+      </div>
+
+      <div class="proc-progress-bar">
+        <div class="proc-progress-fill" id="procFill"></div>
+      </div>
+    </div>
+
+    <!-- RIGHT: scrollable steps -->
+    <div class="proc-steps" id="procCol">
+      <div style="margin-bottom:56px" class="reveal">
+        <div class="stag">Nuestro proceso</div>
+        <h2 class="sh2">Del sueño a la <em>realidad</em></h2>
+        <p class="sp" style="margin-top:10px">Cinco pasos artesanales que transforman tu idea en la joya más especial. Haz scroll para descubrirlos.</p>
+      </div>
+
+      <div class="ps-item on" id="ps1">
+        <div class="ps-inner">
+          <div class="ps-num">01</div>
+          <div class="ps-title">Diseño personalizado</div>
+        </div>
+        <div class="ps-body">
+          <p>Hablamos contigo y entendemos tu visión. Creamos un boceto inicial con tus preferencias de materiales, piedras y forma. Consulta sin costo, sin compromiso.</p>
+          <button class="ps-wa" onclick="openWA('Quiero iniciar el proceso de diseño de mi anillo')">Iniciar diseño →</button>
+        </div>
+      </div>
+
+      <div class="ps-item" id="ps2">
+        <div class="ps-inner">
+          <div class="ps-num">02</div>
+          <div class="ps-title">Modelado en 3D</div>
+        </div>
+        <div class="ps-body">
+          <p>Nuestros diseñadores crean el modelo digital exacto. Lo ves en pantalla antes de fabricar, con ajustes ilimitados hasta que quede perfecto para ti.</p>
+          <button class="ps-wa" onclick="openWA('Quiero ver ejemplos del modelado 3D')">Ver ejemplos →</button>
+        </div>
+      </div>
+
+      <div class="ps-item" id="ps3">
+        <div class="ps-inner">
+          <div class="ps-num">03</div>
+          <div class="ps-title">Impresión en cera</div>
+        </div>
+        <div class="ps-body">
+          <p>El modelo aprobado se imprime en cera de alta precisión. Captura cada micro-detalle y sirve como molde para la fundición, garantizando fidelidad total al diseño.</p>
+          <button class="ps-wa" onclick="openWA('Quiero saber sobre el proceso de impresión en cera')">Saber más →</button>
+        </div>
+      </div>
+
+      <div class="ps-item" id="ps4">
+        <div class="ps-inner">
+          <div class="ps-num">04</div>
+          <div class="ps-title">Fundición artesanal</div>
+        </div>
+        <div class="ps-body">
+          <p>Vaciado en oro 14k o 18k — amarillo, blanco o rosado. Maestros joyeros realizan el acabado y pulido con herramientas de precisión y décadas de experiencia.</p>
+          <button class="ps-wa" onclick="openWA('¿Cuál es la diferencia entre oro 14k y 18k?')">Ver diferencias →</button>
+        </div>
+      </div>
+
+      <div class="ps-item" id="ps5">
+        <div class="ps-inner">
+          <div class="ps-num">05</div>
+          <div class="ps-title">Tu joya, lista</div>
+        </div>
+        <div class="ps-body">
+          <p>Engaste de piedras preciosas, control de calidad, certificado de garantía y empaque premium. Lista para el momento más especial e irrepetible de tu vida.</p>
+          <button class="ps-wa" onclick="openWA('Quiero comenzar a crear mi anillo de compromiso')">Crear mi joya →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- DIAMOND ROW -->
+<section class="sec sec-alt">
+  <div class="diam-grid reveal">
+    <div>
+      <div class="stag">Alta joyería</div>
+      <h2 class="sh2">Anillos que <em>cuentan historias</em></h2>
+      <p class="sp" style="margin-top:12px;margin-bottom:24px">Cada anillo Gold Blue es una pieza única diseñada para acompañarte toda la vida. Explora nuestra selección con diamantes y piedras preciosas.</p>
+      <div style="display:flex;flex-direction:column;gap:10px;max-width:220px">
+        <button class="btn-prim" onclick="openWA('Quiero cotizar un anillo con diamante')">Ver colección</button>
+        <button class="btn-sec" onclick="openWA('Quiero comenzar a diseñar mi anillo')">Diseño personalizado</button>
+      </div>
+    </div>
+    <div class="diam-list" id="diamList"></div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section class="sec" id="blog">
+  <div class="reveal">
+    <div class="stag">Blog & Guías</div>
+    <h2 class="sh2">Elige con <em>confianza</em></h2>
+    <p class="sp">Guías especializadas para que tomes la mejor decisión.</p>
+  </div>
+  <div class="blog-grid" id="blogGrid"></div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="sec sec-alt" id="contacto">
+  <div class="reveal">
+    <div class="stag">Testimonios</div>
+    <h2 class="sh2">Lo que dicen nuestros <em>clientes</em></h2>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-quote">"Superó todas mis expectativas. Ver el diseño en 3D antes de fabricarlo me dio total confianza. Mi novia quedó sin palabras."</p><div class="t-auth"><div class="t-av">JM</div><div><div class="t-name">Juan Miguel R.</div><div class="t-role">Santo Domingo · Compromiso</div></div></div></div>
+    <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-quote">"Compramos las argollas y fue increíble. Cada detalle fue cuidado con precisión y el proceso fue muy transparente. 100% recomendados."</p><div class="t-auth"><div class="t-av">AL</div><div><div class="t-name">Ana Laura V.</div><div class="t-role">Santiago · Argollas</div></div></div></div>
+    <div class="testi-card"><div class="t-stars">★★★★★</div><p class="t-quote">"Fabricaron exactamente lo que tenía en mente. La comunicación por WhatsApp fue fluida y la entrega fue puntual."</p><div class="t-auth"><div class="t-av">CR</div><div><div class="t-name">Carlos R.</div><div class="t-role">La Romana · Personalizado</div></div></div></div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-sec">
+  <div class="cta-tag">Gold Blue · Santo Domingo, República Dominicana</div>
+  <h2 class="cta-h2 reveal">¿Lista tu <em>gran</em><br>pregunta?</h2>
+  <p class="cta-p reveal">Habla con nuestros asesores y comienza a diseñar el anillo que lo dirá todo.</p>
+  <div class="cta-acts reveal">
+    <button class="btn-white" onclick="openWA('Quiero cotizar un anillo de compromiso personalizado')">Cotizar por WhatsApp</button>
+    <button class="btn-out-w" onclick="openWA('Quiero hablar con un asesor de Gold Blue')">Hablar con un asesor</button>
+  </div>
+  <p class="cta-note reveal">Respuesta en menos de 1 hora · Asesoría sin costo · Envíos a toda RD</p>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="f-logo"><img src="data:image/png;base64,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" alt="Gold Blue" loading="lazy"></div>
+  <div class="f-copy">© 2026 Gold Blue. Todos los derechos reservados.</div>
+  <div class="f-links">
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="#blog">Blog</a>
+    <a href="#" onclick="openWA('Hola, tengo una consulta sobre Gold Blue')">Contacto</a>
+  </div>
+</footer>
+
+<!-- WA FLOAT -->
+<button id="wa-float" onclick="openWA('Hola Gold Blue! Quiero información sobre sus joyas')">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</button>
+
+<script>
+const WA = '18091234567'; // ← Cambia aquí tu número
+function openWA(msg){window.open('https://wa.me/'+WA+'?text='+encodeURIComponent(msg),'_blank')}
+
+// Nav scroll effect
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').classList.toggle('scrolled',window.scrollY>20);
+},{ passive:true });
+
+// Product images - real jewelry photos from Unsplash
+const imgs = [
+  'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=80',
+  'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=80',
+  'https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=400&q=80',
+  'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=80',
+  'https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=400&q=80',
+  'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&q=80',
+  'https://images.unsplash.com/photo-1584467735815-8f4e02b90e78?w=400&q=80',
+  'https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=400&q=80',
+];
+
+const products = [
+  {id:1,name:'Solitario Eterno',spec:'Oro 18k · Diamante',price:'Desde RD$ 45,000',badge:'Más vendido',bt:'pb-g',cat:'solitario compromiso',img:imgs[0],specs:{oro:'18k Blanco/Amarillo',piedra:'Diamante 0.5ct',tallas:'4–11',peso:'3.2g',entrega:'15 días',garantia:'2 años'}},
+  {id:2,name:'Halo Royal',spec:'Oro 14k · Zirconia AAA',price:'Desde RD$ 28,000',badge:'Nuevo',bt:'pb-o',cat:'compromiso',img:imgs[1],specs:{oro:'14k Rosado/Blanco',piedra:'Zirconia AAA',tallas:'4–10',peso:'4.1g',entrega:'12 días',garantia:'1 año'}},
+  {id:3,name:'Banda Infinita',spec:'Oro 18k · Lisa',price:'Desde RD$ 18,000',badge:'',bt:'',cat:'bodas',img:imgs[4],specs:{oro:'18k Amarillo/Blanco',piedra:'—',tallas:'4–13',peso:'5.0g',entrega:'10 días',garantia:'2 años'}},
+  {id:4,name:'Twist Moderno',spec:'Oro 14k · Topacio',price:'Desde RD$ 32,000',badge:'Personalizable',bt:'pb-o',cat:'solitario personalizado',img:imgs[2],specs:{oro:'14k a elección',piedra:'Topacio Azul',tallas:'5–11',peso:'3.8g',entrega:'18 días',garantia:'1 año'}},
+  {id:5,name:'Vintage Royal',spec:'Oro 18k · Rubí',price:'Desde RD$ 60,000',badge:'Exclusivo',bt:'pb-g',cat:'compromiso personalizado',img:imgs[3],specs:{oro:'18k Amarillo',piedra:'Rubí Natural',tallas:'4–9',peso:'4.5g',entrega:'21 días',garantia:'3 años'}},
+  {id:6,name:'Argollas Unión',spec:'Oro 14k · Par',price:'Desde RD$ 24,000',badge:'',bt:'',cat:'bodas',img:imgs[5],specs:{oro:'14k Mixto',piedra:'—',tallas:'Custom',peso:'3.0g c/u',entrega:'14 días',garantia:'2 años'}},
+  {id:7,name:'Pavé Eternity',spec:'Oro 18k · Pavé',price:'Desde RD$ 52,000',badge:'Más vendido',bt:'pb-g',cat:'compromiso solitario',img:imgs[6],specs:{oro:'18k Blanco',piedra:'Pavé diamantes',tallas:'4–11',peso:'3.5g',entrega:'20 días',garantia:'2 años'}},
+  {id:8,name:'Diseño Propio',spec:'Cualquier material',price:'A cotizar',badge:'Personalizable',bt:'pb-o',cat:'personalizado',img:imgs[7],specs:{oro:'A tu elección',piedra:'A tu elección',tallas:'Custom',peso:'Variable',entrega:'21 días',garantia:'2 años'}},
+];
+
+function prodCardHTML(p, big=false){
+  return `<div class="prod-card" onclick="openModal(${p.id})">
+    <div class="prod-img"${big?' style="height:440px"':''}>
+      <img src="${p.img}" alt="${p.name}" loading="lazy">
+      ${p.badge?`<div class="prod-badge ${p.bt}">${p.badge}</div>`:''}
+      <div class="prod-wish" onclick="event.stopPropagation()">♡</div>
+    </div>
+    <div class="prod-body">
+      <div class="prod-name">${p.name}</div>
+      <div class="prod-spec">${p.spec}</div>
+      <div class="prod-foot">
+        <div class="prod-price">${p.price}</div>
+        <button class="prod-btn" onclick="event.stopPropagation();openWA('Quiero cotizar: ${p.name}')">Cotizar</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function switchTab(cat, btn){
+  document.querySelectorAll('.ctab').forEach(b=>b.classList.remove('on'));
+  btn.classList.add('on');
+  const list = cat==='todos' ? products : products.filter(p=>p.cat.includes(cat));
+  // Featured: first item big, next 2 side by side
+  const featured = list.slice(0,3);
+  const rest = list.slice(3);
+  document.getElementById('catFeatured').innerHTML = featured.map((p,i)=>prodCardHTML(p, i===0)).join('');
+  document.getElementById('catRow').innerHTML = rest.map(p=>prodCardHTML(p)).join('');
+  // Hide row if empty
+  document.getElementById('catRow').style.display = rest.length ? 'grid' : 'none';
+}
+switchTab('todos', document.querySelector('.ctab'));
+
+// Diamond list
+document.getElementById('diamList').innerHTML = products.slice(0,4).map(p=>`
+  <div class="diam-card" onclick="openModal(${p.id})">
+    <div class="diam-thumb"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+    <div class="diam-info"><div class="diam-name">${p.name}</div><div class="diam-spec">${p.spec}</div></div>
+    <div class="diam-price">${p.price}</div>
+  </div>
+`).join('');
+
+// Blog
+const blogs = [
+  {tag:'Guía de compra',title:'Cómo elegir un anillo de compromiso en República Dominicana',excerpt:'Todo lo que necesitas: materiales, presupuesto y cómo sorprender a tu pareja.',date:'Abril 2026',img:'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=400&q=70'},
+  {tag:'Precios 2026',title:'¿Cuánto cuesta un anillo de compromiso en RD?',excerpt:'Rangos de precio reales. Desde anillos clásicos hasta alta joyería.',date:'Marzo 2026',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=400&q=70'},
+  {tag:'Materiales',title:'Oro 10k, 14k y 18k — ¿cuál elegir para tu anillo?',excerpt:'Comparamos durabilidad, precio y apariencia de cada quilataje.',date:'Marzo 2026',img:'https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=400&q=70'},
+  {tag:'Tips',title:'Cómo saber la talla de anillo sin que tu pareja lo sepa',excerpt:'Métodos creativos y confiables para antes de la propuesta perfecta.',date:'Feb 2026',img:'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=400&q=70'},
+  {tag:'Comparativa',title:'Anillo personalizado vs catálogo: ¿cuál es mejor?',excerpt:'Ventajas y desventajas de cada opción según tu caso.',date:'Feb 2026',img:'https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=400&q=70'},
+  {tag:'Cuidados',title:'Cómo limpiar y mantener tu anillo de oro en casa',excerpt:'Consejos prácticos para conservar el brillo y calidad por años.',date:'Ene 2026',img:'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=400&q=70'},
+];
+document.getElementById('blogGrid').innerHTML = blogs.map(a=>`
+  <div class="blog-card" onclick="openWA('Leí sobre: ${a.title.replace(/'/g,'')}')">
+    <div class="blog-img"><img src="${a.img}" alt="${a.title}" loading="lazy"></div>
+    <div class="blog-body">
+      <div class="blog-tag">${a.tag}</div>
+      <div class="blog-title">${a.title}</div>
+      <div class="blog-excerpt">${a.excerpt}</div>
+      <div class="blog-foot"><span class="blog-date">${a.date}</span><span class="blog-read">Leer más →</span></div>
+    </div>
+  </div>
+`).join('');
+
+// Modal
+function openModal(id){
+  const p = products.find(x=>x.id===id);
+  if(!p) return;
+  document.getElementById('mImg').innerHTML = `<img src="${p.img}" alt="${p.name}" style="width:100%;height:100%;object-fit:cover;min-height:340px">`;
+  document.getElementById('mInfo').innerHTML = `
+    <div class="modal-tag">✦ Gold Blue Collection</div>
+    <div class="modal-title">${p.name}</div>
+    <div class="modal-price">${p.price}</div>
+    <div class="modal-hr"></div>
+    <div class="modal-specs">
+      <div class="ms"><label>Tipo de oro</label><span>${p.specs.oro}</span></div>
+      <div class="ms"><label>Piedra</label><span>${p.specs.piedra}</span></div>
+      <div class="ms"><label>Tallas</label><span>${p.specs.tallas}</span></div>
+      <div class="ms"><label>Peso</label><span>${p.specs.peso}</span></div>
+      <div class="ms"><label>Entrega</label><span>${p.specs.entrega}</span></div>
+      <div class="ms"><label>Garantía</label><span>${p.specs.garantia}</span></div>
+    </div>
+    <div class="modal-hr"></div>
+    <div class="modal-acts">
+      <button class="ma-btn ma-gold" onclick="openWA('Quiero cotizar: ${p.name}')">💬 Cotizar por WhatsApp</button>
+      <button class="ma-btn ma-out" onclick="openWA('Quiero personalizar: ${p.name}')">Personalizar diseño</button>
+    </div>
+  `;
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeModal(e){
+  if(!e||e.target===document.getElementById('modal')){
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow='';
+  }
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+// Process scroll — immersive
+let curStg=1;
+function setStg(n){
+  if(n===curStg)return;
+  document.getElementById('sv'+curStg).classList.remove('on');
+  document.getElementById('sv'+n).classList.add('on');
+  curStg=n;
+  // Update step items
+  document.querySelectorAll('.ps-item').forEach(s=>s.classList.remove('on'));
+  const t=document.getElementById('ps'+n);
+  if(t)t.classList.add('on');
+  // Counter
+  document.getElementById('procNum').textContent=n;
+  // Progress bar
+  document.getElementById('procFill').style.width=((n/5)*100)+'%';
+}
+function onScroll(){
+  const col=document.getElementById('procCol');
+  if(col){
+    const r=col.getBoundingClientRect();
+    const winH=window.innerHeight;
+    // Scroll starts when section enters viewport, ends when it exits
+    const totalScroll=col.scrollHeight-winH+68;
+    const scrolled=Math.max(0,-r.top+68);
+    const prog=Math.max(0,Math.min(1,scrolled/totalScroll));
+    const stage=Math.max(1,Math.min(5,Math.ceil(prog*5)||1));
+    setStg(stage);
+  }
+  document.querySelectorAll('.reveal').forEach(el=>{
+    if(el.getBoundingClientRect().top<window.innerHeight*.9)el.classList.add('in');
+  });
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+onScroll();
+</script>
+</body>
+</html>
