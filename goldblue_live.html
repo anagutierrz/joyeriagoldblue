@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gold Blue — Más que Joyería | Santo Domingo, RD</title>
+<meta name="description" content="Fabricamos anillos de compromiso únicos en oro 14k y 18k. Diseño 3D, fabricación artesanal y entrega en toda la República Dominicana.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Nunito+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --s1:#e3d3c4;--s2:#ded3c4;--s3:#ede9e8;--s4:#f7f4f2;--s5:#fdfcfb;
+  --g:#b8922a;--g2:#d4a843;
+  --ink:#1c1814;--ink2:#3a3028;--gray:#7a6e65;--gray2:#a09488;
+  --r:14px;--tr:.32s cubic-bezier(.4,0,.2,1);
+}
+html{scroll-behavior:smooth}
+body{font-family:'Nunito Sans',sans-serif;background:var(--s5);color:var(--ink);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;object-fit:cover}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit;cursor:pointer}
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--s4)}
+::-webkit-scrollbar-thumb{background:var(--s2);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--g)}
+
+/* NAV */
+#nav{position:fixed;top:0;left:0;right:0;z-index:400;height:66px;display:flex;align-items:center;justify-content:space-between;padding:0 48px;background:rgba(253,252,251,.96);backdrop-filter:blur(14px);border-bottom:1px solid var(--s1);transition:box-shadow var(--tr)}
+#nav.up{box-shadow:0 2px 20px rgba(100,70,40,.09)}
+.nav-logo-txt{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:500;color:var(--ink);letter-spacing:.04em}
+.nav-logo-txt span{color:var(--g)}
+.nav-logo-sub{font-size:.6rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gray2);margin-top:1px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:600;color:var(--gray);position:relative;transition:color var(--tr)}
+.nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;right:0;height:1px;background:var(--g);transform:scaleX(0);transition:transform var(--tr);transform-origin:left}
+.nav-links a:hover{color:var(--g)}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-right{display:flex;align-items:center;gap:12px}
+.nav-cta{background:var(--g);color:#fff;border:none;padding:10px 22px;border-radius:100px;font-size:.66rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;transition:all var(--tr)}
+.nav-cta:hover{background:var(--g2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(184,146,42,.3)}
+.ham{display:none;flex-direction:column;gap:5px;background:none;border:none;padding:4px}
+.ham span{display:block;width:22px;height:1.5px;background:var(--ink);border-radius:1px}
+#mob{display:none;position:fixed;inset:0;z-index:350;background:var(--s5);flex-direction:column;align-items:center;justify-content:center;gap:22px;padding:80px 24px 48px}
+#mob.open{display:flex}
+.mob-x{position:absolute;top:18px;right:20px;background:none;border:none;font-size:24px;color:var(--ink)}
+.mob-link{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:400;color:var(--ink);transition:color var(--tr)}
+.mob-link:hover{color:var(--g)}
+.mob-wa{margin-top:16px;width:100%;max-width:260px;background:var(--g);color:#fff;border:none;padding:14px;border-radius:100px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+
+/* BUTTONS */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:100px;border:none;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;transition:all var(--tr)}
+.btn-g{background:var(--g);color:#fff}
+.btn-g:hover{background:var(--g2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(184,146,42,.28)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--s1)}
+.btn-o:hover{border-color:var(--g);color:var(--g)}
+
+/* TYPOGRAPHY */
+.tag{display:inline-flex;align-items:center;gap:10px;font-size:.6rem;letter-spacing:.24em;text-transform:uppercase;color:var(--g);font-weight:600;margin-bottom:12px}
+.tag::before{content:'';width:18px;height:1px;background:var(--g);flex-shrink:0}
+.h2{font-family:'Cormorant Garamond',serif;font-size:clamp(1.9rem,4.5vw,3.2rem);font-weight:300;line-height:1.1;color:var(--ink)}
+.h2 em{font-style:italic;color:var(--g)}
+.body-txt{font-size:.88rem;line-height:1.9;color:var(--gray)}
+.rev{opacity:0;transform:translateY(24px);transition:opacity .75s ease,transform .75s ease}
+.rev.in{opacity:1;transform:none}
+.rev-d1{transition-delay:.1s}.rev-d2{transition-delay:.2s}.rev-d3{transition-delay:.3s}
+
+/* HERO */
+.hero{min-height:100svh;padding-top:66px;display:grid;grid-template-columns:1fr 1fr;background:var(--s5);position:relative;overflow:hidden}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:80px 60px 80px 72px;position:relative;z-index:1}
+.hero-kicker{font-size:.6rem;letter-spacing:.26em;text-transform:uppercase;color:var(--g);font-weight:600;margin-bottom:22px;display:flex;align-items:center;gap:10px}
+.hero-kicker::before{content:'';width:20px;height:1px;background:var(--g)}
+.hero-h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.8rem,5.5vw,5.2rem);font-weight:300;line-height:1.03;color:var(--ink);margin-bottom:22px}
+.hero-h1 em{font-style:italic;color:var(--g);display:block}
+.hero-body{font-size:.9rem;line-height:1.9;color:var(--gray);max-width:400px;margin-bottom:36px}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.hero-stats{display:flex;gap:0;margin-top:48px;padding-top:36px;border-top:1px solid var(--s1)}
+.stat{flex:1;padding-right:24px}
+.stat:not(:last-child){margin-right:24px;border-right:1px solid var(--s1)}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:var(--g);line-height:1}
+.stat-l{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gray2);margin-top:4px}
+.hero-right{position:relative;overflow:hidden;background:var(--s1)}
+.hero-img-wrap{position:absolute;inset:0}
+.hero-img-wrap img{width:100%;height:100%;object-fit:cover;filter:saturate(.95);transition:transform 6s ease}
+.hero:hover .hero-img-wrap img{transform:scale(1.04)}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(to right,var(--s5) 0%,transparent 30%)}
+.hero-badge{position:absolute;background:rgba(253,252,251,.92);backdrop-filter:blur(10px);border:1px solid var(--s1);border-radius:12px;padding:12px 18px;box-shadow:0 4px 32px rgba(100,70,40,.1)}
+.hero-badge.b1{bottom:100px;left:28px}
+.hero-badge.b2{top:90px;right:28px}
+.hb-l{font-size:.55rem;letter-spacing:.16em;text-transform:uppercase;color:var(--g);font-weight:700;margin-bottom:3px}
+.hb-v{font-size:.85rem;font-weight:600;color:var(--ink)}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:.45;animation:fadeInUp 1s 1.5s both}
+.hero-scroll span{font-size:.54rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gray)}
+.scroll-line{width:1px;height:44px;background:linear-gradient(to bottom,var(--g),transparent);animation:scrollPulse 2.2s ease-in-out infinite}
+
+/* TRUST BAR */
+.trust-bar{padding:24px 64px;background:var(--s1);display:flex;align-items:center;justify-content:center;gap:48px;flex-wrap:wrap}
+.trust-item{display:flex;align-items:center;gap:10px;font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--ink2);font-weight:600}
+.trust-icon{font-size:1rem;opacity:.7}
+.trust-sep{width:1px;height:24px;background:var(--s2);flex-shrink:0}
+
+/* PROCESO */
+#proceso{background:var(--s5)}
+.proc-wrap{display:grid;grid-template-columns:1fr 1fr}
+.proc-sticky{position:sticky;top:66px;height:calc(100svh - 66px);display:flex;align-items:center;justify-content:center;background:var(--s4);overflow:hidden}
+.proc-sticky::before{content:'';position:absolute;width:500px;height:500px;border-radius:50%;background:radial-gradient(circle,var(--s1) 0%,transparent 70%);top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none}
+.proc-canvas{width:360px;height:360px;position:relative;display:flex;align-items:center;justify-content:center}
+.sv{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .6s ease,transform .6s ease;transform:scale(.93)}
+.sv.on{opacity:1;transform:scale(1)}
+.sv-ring{width:280px;height:280px;border-radius:50%;overflow:hidden;border:3px solid var(--s1);box-shadow:0 0 0 12px rgba(227,211,196,.25),0 0 0 24px rgba(227,211,196,.1),0 24px 80px rgba(100,70,40,.15)}
+.sv-ring img{width:100%;height:100%;object-fit:cover;transition:transform .8s}
+.sv.on .sv-ring img{transform:scale(1.04)}
+.sv-badge{position:absolute;bottom:16px;left:50%;transform:translateX(-50%);background:var(--g);color:#fff;padding:6px 20px;border-radius:100px;font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;font-weight:700;white-space:nowrap;box-shadow:0 4px 16px rgba(184,146,42,.35)}
+.orb{position:absolute;border-radius:50%;pointer-events:none}
+.orb1{width:312px;height:312px;border:1px dashed rgba(184,146,42,.2);animation:spin 28s linear infinite}
+.orb2{width:358px;height:358px;border:1px solid rgba(227,211,196,.5);animation:spin 40s linear reverse infinite}
+.proc-prog{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);width:140px;height:2px;background:var(--s1);border-radius:2px;overflow:hidden}
+.proc-prog-fill{height:100%;background:var(--g);border-radius:2px;width:0%;transition:width .55s ease}
+.proc-ctr{position:absolute;top:28px;right:28px;font-family:'Cormorant Garamond',serif;font-size:.75rem;color:var(--gray2)}
+.proc-ctr strong{font-size:1.5rem;font-weight:400;color:var(--g)}
+.proc-steps{padding:80px 64px 80px 60px}
+.proc-head{margin-bottom:52px}
+.psi{padding:0;border-bottom:1px solid var(--s1);overflow:hidden;transition:all .4s ease}
+.psi:first-of-type{border-top:1px solid var(--s1)}
+.psi-inner{padding:22px 0;display:flex;align-items:center;gap:16px}
+.psi-num{width:32px;height:32px;border-radius:50%;border:1.5px solid var(--s2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--gray2);transition:all .35s;flex-shrink:0}
+.psi-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:400;color:var(--ink);transition:color .3s}
+.psi-body{max-height:0;overflow:hidden;opacity:0;transition:max-height .45s ease,opacity .4s;padding:0 20px}
+.psi-body p{font-size:.85rem;line-height:1.9;color:var(--gray);margin-bottom:12px}
+.psi-wa{font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);background:none;border:none;font-family:'Nunito Sans',sans-serif;font-weight:700;display:inline-flex;align-items:center;gap:5px;transition:gap .2s}
+.psi-wa:hover{gap:9px}
+.psi.on{background:var(--s4)}
+.psi.on .psi-inner{padding:24px 20px 0}
+.psi.on .psi-num{background:var(--g);border-color:var(--g);color:#fff;box-shadow:0 4px 14px rgba(184,146,42,.3)}
+.psi.on .psi-title{color:var(--g)}
+.psi.on .psi-body{max-height:160px;opacity:1;padding:10px 20px 26px}
+.proc-mobile{display:none}
+.proc-tabs{display:flex;overflow-x:auto;scrollbar-width:none;gap:8px;margin-bottom:20px}
+.proc-tabs::-webkit-scrollbar{display:none}
+.ptab{flex:0 0 auto;padding:7px 14px;border-radius:100px;border:1.5px solid var(--s1);background:var(--s5);font-size:.58rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--gray);transition:all var(--tr);white-space:nowrap}
+.ptab.on{background:var(--g);border-color:var(--g);color:#fff}
+.proc-card{display:none}
+.proc-card.show{display:block}
+.proc-photo{width:100%;height:220px;border-radius:var(--r);overflow:hidden;margin-bottom:16px}
+.proc-photo img{width:100%;height:100%;object-fit:cover}
+.proc-badge{display:inline-block;background:var(--g);color:#fff;padding:5px 16px;border-radius:100px;font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.proc-t{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:400;color:var(--ink);margin-bottom:8px}
+.proc-p{font-size:.85rem;line-height:1.85;color:var(--gray);margin-bottom:12px}
+.proc-wa{background:none;border:none;color:var(--g);font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;display:inline-flex;align-items:center;gap:5px;transition:gap .2s}
+.proc-wa:hover{gap:9px}
+
+/* CATÁLOGO */
+.catalog-sec{padding:88px 64px;background:var(--s5)}
+.cat-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:16px}
+.cat-tabs{display:flex;overflow-x:auto;scrollbar-width:none;border-bottom:1.5px solid var(--s1);margin:28px 0 32px;gap:0}
+.cat-tabs::-webkit-scrollbar{display:none}
+.ctab{flex:0 0 auto;padding:10px 20px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:var(--gray2);background:none;border:none;border-bottom:2px solid transparent;margin-bottom:-1.5px;transition:all var(--tr);white-space:nowrap}
+.ctab.on{color:var(--g);border-bottom-color:var(--g)}
+.ctab:hover{color:var(--ink)}
+.cat-loading{text-align:center;padding:60px 20px;color:var(--gray2)}
+.spinner{width:36px;height:36px;border:2px solid var(--s1);border-top-color:var(--g);border-radius:50%;animation:spin .7s linear infinite;margin:0 auto 16px}
+.cat-loading p{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray2)}
+.cat-error{text-align:center;padding:48px;background:var(--s4);border-radius:var(--r);color:var(--gray)}
+.cat-error h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--ink);margin-bottom:8px}
+.cat-error p{font-size:.85rem;line-height:1.8;margin-bottom:16px}
+#cat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:20px}
+.pc{border-radius:var(--r);overflow:hidden;cursor:pointer;background:var(--s5);border:1px solid var(--s1);box-shadow:0 2px 12px rgba(100,70,40,.06);transition:all var(--tr)}
+.pc:hover{border-color:rgba(184,146,42,.35);transform:translateY(-5px);box-shadow:0 16px 40px rgba(100,70,40,.12)}
+.pc-img{height:220px;overflow:hidden;background:var(--s3);position:relative}
+.pc-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s ease}
+.pc:hover .pc-img img{transform:scale(1.07)}
+.pc-badge{position:absolute;top:10px;left:10px;padding:4px 10px;border-radius:100px;font-size:.54rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700}
+.pb-g{background:var(--g);color:#fff}
+.pb-o{background:rgba(253,252,251,.9);border:1px solid var(--g);color:var(--g)}
+.pc-body{padding:16px 18px 18px}
+.pc-name{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--ink);margin-bottom:3px}
+.pc-spec{font-size:.58rem;letter-spacing:.12em;text-transform:uppercase;color:var(--gray2);margin-bottom:10px}
+.pc-foot{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.pc-price{font-size:.88rem;color:var(--g);font-weight:700}
+.pc-btn{padding:6px 14px;background:var(--g);color:#fff;border:none;border-radius:100px;font-size:.56rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;transition:all var(--tr)}
+.pc-btn:hover{background:var(--g2)}
+.cat-cta{margin-top:32px;padding-top:28px;border-top:1px solid var(--s1);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
+.cat-cta-t{font-size:.88rem;color:var(--gray)}
+.cat-cta-t strong{color:var(--ink)}
+
+/* MODAL */
+#modal{display:none;position:fixed;inset:0;z-index:500;background:rgba(28,24,20,.72);backdrop-filter:blur(8px);align-items:flex-end;justify-content:center}
+#modal.open{display:flex}
+.modal-box{background:var(--s5);border-radius:20px 20px 0 0;width:100%;max-height:92svh;overflow-y:auto}
+.modal-img-main{width:100%;height:280px;overflow:hidden;border-radius:20px 20px 0 0;position:relative;flex-shrink:0}
+.modal-img-main img{width:100%;height:100%;object-fit:cover;transition:opacity .3s ease}
+.modal-close{position:absolute;top:12px;right:12px;width:32px;height:32px;border-radius:50%;background:rgba(253,252,251,.9);border:1px solid var(--s1);font-size:16px;color:var(--ink);display:flex;align-items:center;justify-content:center;transition:all var(--tr)}
+.modal-close:hover{background:var(--g);color:#fff;border-color:var(--g)}
+.modal-gallery{display:flex;gap:8px;padding:12px 20px 0;overflow-x:auto;scrollbar-width:none}
+.modal-gallery::-webkit-scrollbar{display:none}
+.mg-thumb{width:64px;height:64px;border-radius:9px;overflow:hidden;cursor:pointer;flex-shrink:0;border:2px solid transparent;transition:all var(--tr)}
+.mg-thumb.active{border-color:var(--g)}
+.mg-thumb img{width:100%;height:100%;object-fit:cover}
+.modal-body{padding:16px 22px 32px;display:flex;flex-direction:column;gap:12px}
+.modal-tag{font-size:.56rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g);font-weight:700}
+.modal-title{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--ink)}
+.modal-price{font-size:1rem;color:var(--g);font-weight:700}
+.modal-hr{height:1px;background:var(--s1)}
+.modal-specs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ms label{display:block;font-size:.55rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gray2);margin-bottom:2px}
+.ms span{font-size:.8rem;color:var(--ink);font-weight:600}
+.modal-acts{display:flex;flex-direction:column;gap:8px}
+.ma{padding:12px;border-radius:100px;font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;text-align:center;border:none;transition:all var(--tr)}
+.ma-g{background:var(--g);color:#fff}
+.ma-o{background:transparent;color:var(--g);border:1.5px solid rgba(184,146,42,.3)}
+.ma:hover{opacity:.85}
+
+/* BLOG */
+.blog-sec{padding:88px 64px;background:var(--s4)}
+.blog-header{display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:36px;flex-wrap:wrap;gap:16px}
+.blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px}
+.blog-card{border-radius:var(--r);overflow:hidden;cursor:pointer;background:var(--s5);border:1px solid var(--s1);transition:all var(--tr)}
+.blog-card:hover{border-color:rgba(184,146,42,.3);transform:translateY(-4px);box-shadow:0 12px 32px rgba(100,70,40,.1)}
+.blog-img{height:180px;overflow:hidden;background:var(--s3)}
+.blog-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s}
+.blog-card:hover .blog-img img{transform:scale(1.06)}
+.blog-body{padding:20px}
+.blog-tag{font-size:.54rem;letter-spacing:.2em;text-transform:uppercase;color:var(--g);font-weight:700;margin-bottom:7px}
+.blog-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--ink);line-height:1.35;margin-bottom:7px;transition:color var(--tr)}
+.blog-card:hover .blog-title{color:var(--g)}
+.blog-excerpt{font-size:.75rem;color:var(--gray);line-height:1.8}
+.blog-foot{display:flex;justify-content:space-between;align-items:center;margin-top:14px;padding-top:12px;border-top:1px solid var(--s1)}
+.blog-date{font-size:.58rem;color:var(--gray2)}
+.blog-read{font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:var(--g);font-weight:700}
+
+/* TESTIMONIALS */
+.testi-sec{padding:88px 64px;background:var(--s5)}
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+.testi-card{background:var(--s4);border:1px solid var(--s1);border-radius:var(--r);padding:32px 26px}
+.t-stars{color:var(--g);letter-spacing:3px;font-size:.7rem;margin-bottom:14px}
+.t-quote{font-family:'Cormorant Garamond',serif;font-size:.98rem;font-style:italic;font-weight:300;line-height:1.75;color:var(--ink2);margin-bottom:20px}
+.t-auth{display:flex;align-items:center;gap:10px}
+.t-av{width:36px;height:36px;border-radius:50%;background:var(--s1);border:1.5px solid var(--g);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:.9rem;color:var(--g);flex-shrink:0}
+.t-name{font-size:.78rem;font-weight:700;color:var(--ink);margin-bottom:1px}
+.t-role{font-size:.6rem;color:var(--gray2)}
+
+/* CTA */
+.cta-sec{padding:100px 64px;background:var(--ink);text-align:center;position:relative;overflow:hidden}
+.cta-sec::before{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:600px;height:600px;border-radius:50%;background:radial-gradient(circle,rgba(227,211,196,.06) 0%,transparent 70%)}
+.cta-sec::after{content:'';position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:360px;height:360px;border-radius:50%;border:1px solid rgba(184,146,42,.12)}
+.cta-ring2{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:500px;height:500px;border-radius:50%;border:1px solid rgba(184,146,42,.07)}
+.cta-tag{font-size:.58rem;letter-spacing:.24em;text-transform:uppercase;color:var(--s2);margin-bottom:14px;position:relative;z-index:1}
+.cta-h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,5vw,3.8rem);font-weight:300;color:var(--s5);line-height:1.08;margin-bottom:14px;position:relative;z-index:1}
+.cta-h2 em{font-style:italic;color:var(--s1)}
+.cta-p{font-size:.88rem;color:rgba(237,233,232,.45);margin-bottom:32px;line-height:1.85;position:relative;z-index:1}
+.cta-acts{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;z-index:1}
+.btn-sand{background:var(--s1);color:var(--ink);border:none;padding:13px 28px;border-radius:100px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;transition:all var(--tr)}
+.btn-sand:hover{background:var(--s2);transform:translateY(-2px)}
+.btn-ow{background:transparent;color:var(--s3);border:1.5px solid rgba(237,233,232,.2);padding:13px 28px;border-radius:100px;font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;font-weight:700;transition:all var(--tr)}
+.btn-ow:hover{border-color:var(--s1);color:var(--s1)}
+.cta-note{font-size:.6rem;color:rgba(237,233,232,.25);margin-top:20px;position:relative;z-index:1}
+
+/* FOOTER */
+footer{background:var(--s5);border-top:1px solid var(--s1);padding:36px 64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px}
+.f-brand{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:400;color:var(--ink)}
+.f-brand span{color:var(--g)}
+.f-copy{font-size:.62rem;color:var(--gray2)}
+.f-links{display:flex;gap:20px}
+.f-links a{font-size:.62rem;letter-spacing:.1em;text-transform:uppercase;color:var(--gray2);transition:color var(--tr)}
+.f-links a:hover{color:var(--g)}
+
+/* WA */
+#wa-btn{position:fixed;bottom:22px;right:22px;z-index:300;width:52px;height:52px;border-radius:50%;background:#25D366;border:none;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 20px rgba(37,211,102,.38);transition:transform var(--tr)}
+#wa-btn:hover{transform:scale(1.1)}
+#wa-btn svg{width:26px;height:26px;fill:#fff}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes scrollPulse{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform:scaleY(1);transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@keyframes fadeInUp{from{opacity:0;transform:translateY(10px)}to{opacity:.45;transform:none}}
+@keyframes waBeat{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,.38)}50%{box-shadow:0 4px 32px rgba(37,211,102,.6)}}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+  #nav{padding:0 24px;height:62px}
+  .nav-links{display:none}
+  .ham{display:flex}
+  .nav-cta{padding:8px 16px;font-size:.62rem}
+  .hero{grid-template-columns:1fr;min-height:auto}
+  .hero-left{padding:88px 24px 40px}
+  .hero-h1{font-size:clamp(2.2rem,7vw,3.4rem)}
+  .hero-right{height:320px}
+  .hero-badge,.hero-scroll{display:none}
+  .catalog-sec,.blog-sec,.testi-sec,.cta-sec{padding:64px 24px}
+  .trust-bar{padding:18px 24px;gap:20px}
+  .proc-wrap{grid-template-columns:1fr}
+  .proc-sticky{display:none}
+  .proc-steps{padding:64px 24px}
+  .proc-mobile{display:block}
+  #cat-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+  .pc-img{height:180px}
+  .blog-grid{grid-template-columns:1fr 1fr;gap:14px}
+  .testi-grid{grid-template-columns:1fr;gap:14px}
+  .cat-cta{flex-direction:column;align-items:flex-start}
+  .cta-acts{flex-direction:column;align-items:center}
+  .btn-sand,.btn-ow{width:100%;max-width:280px}
+  footer{padding:24px;flex-direction:column;text-align:center}
+  .f-links{justify-content:center}
+  #modal.open{align-items:center}
+  .modal-box{border-radius:20px;width:92vw;max-height:88svh}
+  .modal-img-main{height:240px;border-radius:20px 20px 0 0}
+}
+@media(max-width:600px){
+  #nav{height:58px}
+  .hero-left{padding:78px 16px 32px}
+  .hero-h1{font-size:2rem}
+  .hero-btns{flex-direction:column;gap:10px}
+  .hero-btns .btn{width:100%}
+  .hero-stats{flex-direction:column;gap:12px}
+  .stat:not(:last-child){border-right:none;margin-right:0;border-bottom:1px solid var(--s1);padding-bottom:12px}
+  #cat-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .pc-img{height:150px}
+  .blog-grid{grid-template-columns:1fr}
+  .trust-bar{gap:12px}
+  .trust-sep{display:none}
+  .catalog-sec,.blog-sec,.testi-sec,.cta-sec{padding:52px 16px}
+}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div>
+    <div class="nav-logo-txt">Gold <span>Blue</span></div>
+    <div class="nav-logo-sub">Más que joyería</div>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#proceso">Diseño de Joyas</a></li>
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#blog">Blog</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="nav-cta" onclick="wa('Hola Gold Blue, quiero cotizar una joya')">Cotizar ahora</button>
+    <button class="ham" id="ham" onclick="toggleMenu()"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div id="mob">
+  <button class="mob-x" onclick="toggleMenu()">✕</button>
+  <a class="mob-link" href="#inicio" onclick="toggleMenu()">Inicio</a>
+  <a class="mob-link" href="#proceso" onclick="toggleMenu()">Diseño de Joyas</a>
+  <a class="mob-link" href="#catalogo" onclick="toggleMenu()">Catálogo</a>
+  <a class="mob-link" href="#blog" onclick="toggleMenu()">Blog</a>
+  <a class="mob-link" href="#contacto" onclick="toggleMenu()">Contacto</a>
+  <button class="mob-wa" onclick="wa('Quiero cotizar una joya');toggleMenu()">Cotizar por WhatsApp</button>
+</div>
+
+<section class="hero" id="inicio">
+  <div class="hero-left rev">
+    <div class="hero-kicker">Joyería artesanal · Santo Domingo, RD</div>
+    <h1 class="hero-h1">El anillo que<em>marcará tu historia</em></h1>
+    <p class="hero-body">Diseñamos y fabricamos joyas únicas en oro 14k y 18k. Del boceto al modelado 3D, de la cera a la pieza final — hecha solo para ti.</p>
+    <div class="hero-btns">
+      <button class="btn btn-g" onclick="wa('Quiero diseñar mi anillo personalizado')">Diseñar mi anillo</button>
+      <button class="btn btn-o" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">Ver colección</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat rev rev-d1"><div class="stat-n">500+</div><div class="stat-l">Joyas creadas</div></div>
+      <div class="stat rev rev-d2"><div class="stat-n">14k</div><div class="stat-l">Oro certificado</div></div>
+      <div class="stat rev rev-d3"><div class="stat-n">15d</div><div class="stat-l">Entrega máxima</div></div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=900&q=90" alt="Anillo de compromiso Gold Blue" loading="eager">
+    </div>
+    <div class="hero-img-overlay"></div>
+    <div class="hero-badge b1"><div class="hb-l">Material</div><div class="hb-v">Oro 18k · Diamante</div></div>
+    <div class="hero-badge b2"><div class="hb-l">Proceso</div><div class="hb-v">Diseño 3D incluido</div></div>
+  </div>
+  <div class="hero-scroll"><span>Scroll</span><div class="scroll-line"></div></div>
+</section>
+
+<div class="trust-bar">
+  <div class="trust-item"><span class="trust-icon">✦</span> Oro 14k y 18k certificado</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-icon">✦</span> Diseño 3D sin costo</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-icon">✦</span> Entrega en toda la RD</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-icon">✦</span> Garantía hasta 3 años</div>
+  <div class="trust-sep"></div>
+  <div class="trust-item"><span class="trust-icon">✦</span> +500 joyas fabricadas</div>
+</div>
+
+<section id="proceso">
+  <div class="proc-wrap">
+    <div class="proc-sticky">
+      <div class="proc-canvas">
+        <div class="orb orb1"></div><div class="orb orb2"></div>
+        <div class="sv on" id="sv1"><div class="sv-ring"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=500&q=85" alt="Diseño" loading="lazy"></div><div class="sv-badge">01 · Diseño personalizado</div></div>
+        <div class="sv" id="sv2"><div class="sv-ring"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=500&q=85" alt="3D" loading="lazy"></div><div class="sv-badge">02 · Modelado en 3D</div></div>
+        <div class="sv" id="sv3"><div class="sv-ring"><img src="https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=500&q=85" alt="Cera" loading="lazy"></div><div class="sv-badge">03 · Impresión en cera</div></div>
+        <div class="sv" id="sv4"><div class="sv-ring"><img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=500&q=85" alt="Fundición" loading="lazy"></div><div class="sv-badge">04 · Fundición artesanal</div></div>
+        <div class="sv" id="sv5"><div class="sv-ring"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=85" alt="Joya" loading="lazy"></div><div class="sv-badge">05 · Tu joya lista ✦</div></div>
+        <div class="proc-prog"><div class="proc-prog-fill" id="pFill"></div></div>
+        <div class="proc-ctr"><strong id="pNum">1</strong> / 5</div>
+      </div>
+    </div>
+    <div class="proc-steps" id="procCol">
+      <div class="proc-head rev">
+        <div class="tag">Diseño de joyas</div>
+        <h2 class="h2">Del sueño a la <em>realidad</em></h2>
+        <p class="body-txt" style="margin-top:10px;max-width:420px">Cinco pasos artesanales respaldados por tecnología 3D.</p>
+      </div>
+      <div class="proc-mobile">
+        <div class="proc-tabs">
+          <button class="ptab on" onclick="procTab(1,this)">01 Diseño</button>
+          <button class="ptab" onclick="procTab(2,this)">02 Modelo 3D</button>
+          <button class="ptab" onclick="procTab(3,this)">03 Cera</button>
+          <button class="ptab" onclick="procTab(4,this)">04 Fundición</button>
+          <button class="ptab" onclick="procTab(5,this)">05 Tu joya</button>
+        </div>
+        <div class="proc-card show" id="pc1"><div class="proc-photo"><img src="https://images.unsplash.com/photo-1611591437281-460bfbe1220a?w=600&q=80" alt="Diseño" loading="lazy"></div><div class="proc-badge">01 · Diseño</div><div class="proc-t">Diseño personalizado</div><p class="proc-p">Conversamos contigo y entendemos tu visión. Creamos un boceto con tus preferencias. Consulta sin costo.</p><button class="proc-wa" onclick="wa('Quiero iniciar el diseño de mi anillo')">Iniciar diseño →</button></div>
+        <div class="proc-card" id="pc2"><div class="proc-photo"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="3D" loading="lazy"></div><div class="proc-badge">02 · Modelo 3D</div><div class="proc-t">Modelado en 3D</div><p class="proc-p">Nuestros diseñadores crean el modelo digital exacto. Lo ves antes de fabricar, con ajustes ilimitados.</p><button class="proc-wa" onclick="wa('Quiero ver ejemplos del modelado 3D')">Ver ejemplos →</button></div>
+        <div class="proc-card" id="pc3"><div class="proc-photo"><img src="https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=600&q=80" alt="Cera" loading="lazy"></div><div class="proc-badge">03 · Cera</div><div class="proc-t">Impresión en cera</div><p class="proc-p">El modelo se imprime en cera de alta precisión, capturando cada detalle para la fundición.</p><button class="proc-wa" onclick="wa('Quiero saber sobre la impresión en cera')">Saber más →</button></div>
+        <div class="proc-card" id="pc4"><div class="proc-photo"><img src="https://images.unsplash.com/photo-1585435557343-3b092031a831?w=600&q=80" alt="Fundición" loading="lazy"></div><div class="proc-badge">04 · Fundición</div><div class="proc-t">Fundición artesanal</div><p class="proc-p">Vaciado en oro 14k o 18k. Maestros joyeros realizan el acabado y pulido artesanal.</p><button class="proc-wa" onclick="wa('Diferencia entre oro 14k y 18k')">Ver diferencias →</button></div>
+        <div class="proc-card" id="pc5"><div class="proc-photo"><img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80" alt="Joya" loading="lazy"></div><div class="proc-badge">05 · Tu joya</div><div class="proc-t">Tu joya, lista</div><p class="proc-p">Engaste de piedras, control de calidad, certificado de garantía y empaque premium.</p><button class="proc-wa" onclick="wa('Quiero comenzar mi anillo de compromiso')">Crear mi joya →</button></div>
+      </div>
+      <div id="psiWrap">
+        <div class="psi on" id="psi1"><div class="psi-inner"><div class="psi-num">01</div><div class="psi-title">Diseño personalizado</div></div><div class="psi-body"><p>Conversamos contigo y entendemos tu visión. Creamos un boceto con tus preferencias de material, piedra y forma. Consulta sin costo.</p><button class="psi-wa" onclick="wa('Quiero iniciar el diseño de mi anillo')">Iniciar diseño →</button></div></div>
+        <div class="psi" id="psi2"><div class="psi-inner"><div class="psi-num">02</div><div class="psi-title">Modelado en 3D</div></div><div class="psi-body"><p>Nuestros diseñadores crean el modelo digital exacto. Lo ves en pantalla antes de fabricar, con ajustes ilimitados.</p><button class="psi-wa" onclick="wa('Quiero ver ejemplos del modelado 3D')">Ver ejemplos →</button></div></div>
+        <div class="psi" id="psi3"><div class="psi-inner"><div class="psi-num">03</div><div class="psi-title">Impresión en cera</div></div><div class="psi-body"><p>El modelo aprobado se imprime en cera de alta precisión, capturando cada micro-detalle para la fundición.</p><button class="psi-wa" onclick="wa('Quiero saber sobre la impresión en cera')">Saber más →</button></div></div>
+        <div class="psi" id="psi4"><div class="psi-inner"><div class="psi-num">04</div><div class="psi-title">Fundición artesanal</div></div><div class="psi-body"><p>Vaciado en oro 14k o 18k. Maestros joyeros realizan el acabado y pulido con herramientas de precisión.</p><button class="psi-wa" onclick="wa('Diferencia entre oro 14k y 18k')">Ver diferencias →</button></div></div>
+        <div class="psi" id="psi5"><div class="psi-inner"><div class="psi-num">05</div><div class="psi-title">Tu joya, lista</div></div><div class="psi-body"><p>Engaste de piedras preciosas, control de calidad, certificado de garantía y empaque premium.</p><button class="psi-wa" onclick="wa('Quiero comenzar mi anillo de compromiso')">Crear mi joya →</button></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="catalog-sec" id="catalogo">
+  <div class="cat-header rev">
+    <div><div class="tag">Colección</div><h2 class="h2">Joyas que <em>enamoran</em></h2></div>
+    <button class="btn btn-g" onclick="wa('Quiero diseñar mi anillo personalizado')" style="flex-shrink:0">Diseñar el mío →</button>
+  </div>
+  <div class="cat-tabs rev" id="catTabs">
+    <button class="ctab on" onclick="filterCat('todos',this)">Todos</button>
+    <button class="ctab" onclick="filterCat('Anillos de Compromiso',this)">Compromiso</button>
+    <button class="ctab" onclick="filterCat('Argollas de Matrimonio',this)">Bodas</button>
+    <button class="ctab" onclick="filterCat('Solitarios Premium',this)">Solitarios</button>
+    <button class="ctab" onclick="filterCat('Joyas Personalizadas',this)">Personalizable</button>
+  </div>
+  <div id="cat-grid" class="rev"><div class="cat-loading"><div class="spinner"></div><p>Cargando colección...</p></div></div>
+  <div class="cat-cta rev">
+    <div class="cat-cta-t">¿No encuentras lo que buscas? <strong>Creamos tu diseño desde cero.</strong></div>
+    <button class="btn btn-o" onclick="wa('Quiero un diseño personalizado exclusivo')">Diseño exclusivo →</button>
+  </div>
+</section>
+
+<div id="modal" onclick="closeModal(event)">
+  <div class="modal-box" onclick="event.stopPropagation()">
+    <div class="modal-img-main" id="mImgMain"><button class="modal-close" onclick="closeModal()">✕</button></div>
+    <div class="modal-gallery" id="mGallery"></div>
+    <div class="modal-body" id="mBody"></div>
+  </div>
+</div>
+
+<section class="blog-sec" id="blog">
+  <div class="blog-header">
+    <div class="rev"><div class="tag">Blog & Guías</div><h2 class="h2">Elige con <em>confianza</em></h2></div>
+    <button class="btn btn-o rev" onclick="wa('Quiero leer más sobre cómo elegir mi anillo')">Ver todos →</button>
+  </div>
+  <div class="blog-grid rev" id="blog-grid"></div>
+</section>
+
+<section class="testi-sec" id="contacto">
+  <div class="rev"><div class="tag">Testimonios</div><h2 class="h2">Lo que dicen nuestros <em>clientes</em></h2></div>
+  <div class="testi-grid">
+    <div class="testi-card rev rev-d1"><div class="t-stars">★★★★★</div><p class="t-quote">"El anillo superó todas mis expectativas. Ver el diseño en 3D antes de fabricarlo me dio total confianza. Mi novia quedó sin palabras."</p><div class="t-auth"><div class="t-av">JM</div><div><div class="t-name">Juan Miguel R.</div><div class="t-role">Santo Domingo · Compromiso</div></div></div></div>
+    <div class="testi-card rev rev-d2"><div class="t-stars">★★★★★</div><p class="t-quote">"Compramos las argollas y la experiencia fue increíble. Cada detalle fue cuidado con precisión y el proceso fue muy transparente."</p><div class="t-auth"><div class="t-av">AL</div><div><div class="t-name">Ana Laura V.</div><div class="t-role">Santiago · Argollas</div></div></div></div>
+    <div class="testi-card rev rev-d3"><div class="t-stars">★★★★★</div><p class="t-quote">"Fabricaron exactamente lo que tenía en mente. La comunicación por WhatsApp fue fluida y la entrega puntual."</p><div class="t-auth"><div class="t-av">CR</div><div><div class="t-name">Carlos R.</div><div class="t-role">La Romana · Personalizado</div></div></div></div>
+  </div>
+</section>
+
+<section class="cta-sec">
+  <div class="cta-ring2"></div>
+  <div class="cta-tag rev">Gold Blue · Santo Domingo, República Dominicana</div>
+  <h2 class="cta-h2 rev">¿Lista tu <em>gran</em><br>pregunta?</h2>
+  <p class="cta-p rev">Diseña el anillo que lo dirá todo. Respuesta en menos de 1 hora.</p>
+  <div class="cta-acts rev">
+    <button class="btn-sand" onclick="wa('Quiero cotizar un anillo de compromiso personalizado')">Cotizar por WhatsApp</button>
+    <button class="btn-ow" onclick="wa('Quiero hablar con un asesor de Gold Blue')">Hablar con un asesor</button>
+  </div>
+  <p class="cta-note rev">Asesoría sin costo · Envíos a toda la República Dominicana · Garantía hasta 3 años</p>
+</section>
+
+<footer>
+  <div>
+    <div class="f-brand">Gold <span>Blue</span></div>
+    <div style="font-size:.62rem;color:var(--gray2);margin-top:3px">© 2026 Gold Blue. Todos los derechos reservados.</div>
+  </div>
+  <div class="f-links">
+    <a href="https://instagram.com" target="_blank">Instagram</a>
+    <a href="https://facebook.com" target="_blank">Facebook</a>
+    <a href="#blog">Blog</a>
+    <a href="#" onclick="wa('Hola, tengo una consulta')">Contacto</a>
+  </div>
+</footer>
+
+<button id="wa-btn" onclick="wa('Hola Gold Blue! Quiero información sobre sus joyas')" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</button>
+
+<script>
+
+const SHEET_ID  = '1T9ubKabVJTRBWfuMCazJOUyHL_vzl7-Qlt49mszaumk';
+const SHEET_TAB = encodeURIComponent('📦 Catálogo');
+const WA_NUM    = '18091234567'; // ← Cambia por tu número real
+
+const COL = {
+  id:0,nombre:1,categoria:2,badge:3,estado:4,
+  precioBase:5,precioTexto:6,tipoOro:7,quilataje:8,
+  piedra:9,tallas:10,peso:11,entrega:12,garantia:13,
+  personalizable:14,img1:15,img2:16,img3:17,
+  altText:18,tituloSEO:19,metaDesc:20,keywords:21
+};
+
+let allProducts = [];
+
+function wa(msg) { window.open('https://wa.me/'+WA_NUM+'?text='+encodeURIComponent(msg),'_blank'); }
+
+// ── Cargar Google Sheets ──────────────────────────
+async function loadSheet() {
+  const url = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?tqx=out:json&sheet=${SHEET_TAB}`;
+  try {
+    const res  = await fetch(url);
+    const text = await res.text();
+    const json = JSON.parse(text.match(/google\.visualization\.Query\.setResponse\(([\s\S]*?)\);/)[1]);
+    const rows = json.table.rows;
+
+    // Las primeras 6 filas son título/encabezados del Excel → saltamos
+    allProducts = rows
+      .slice(6)
+      .map(row => {
+        const c = v => (row.c[v] && row.c[v].v !== null) ? String(row.c[v].v).trim() : '';
+        return {
+          id:c(COL.id), nombre:c(COL.nombre), categoria:c(COL.categoria),
+          badge:c(COL.badge), estado:c(COL.estado),
+          precioBase:c(COL.precioBase), precioTexto:c(COL.precioTexto),
+          tipoOro:c(COL.tipoOro), quilataje:c(COL.quilataje),
+          piedra:c(COL.piedra), tallas:c(COL.tallas), peso:c(COL.peso),
+          entrega:c(COL.entrega), garantia:c(COL.garantia),
+          personalizable:c(COL.personalizable),
+          img1:c(COL.img1), img2:c(COL.img2), img3:c(COL.img3),
+          altText:c(COL.altText), tituloSEO:c(COL.tituloSEO),
+          metaDesc:c(COL.metaDesc), keywords:c(COL.keywords),
+        };
+      })
+      .filter(p => p.nombre && p.estado === 'Activo');
+
+    renderCatalog(allProducts);
+  } catch(err) {
+    console.error('Error cargando Sheet:', err);
+    showCatError();
+  }
+}
+
+// ── Render catálogo ───────────────────────────────
+function renderCatalog(list) {
+  const grid = document.getElementById('cat-grid');
+  if (!list.length) {
+    grid.innerHTML = '<div class="cat-error"><h3>Sin resultados</h3><p>No hay productos en esta categoría por el momento.</p></div>';
+    return;
+  }
+  const FALLBACK = 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=80';
+  grid.innerHTML = list.map(p => {
+    const isStar = ['Más vendido','Exclusivo'].includes(p.badge);
+    const badgeHTML = p.badge ? `<div class="pc-badge ${isStar?'pb-g':'pb-o'}">${p.badge}</div>` : '';
+    return `<div class="pc" onclick="openModal('${p.id}')">
+      <div class="pc-img">
+        <img src="${p.img1||FALLBACK}" alt="${p.altText||p.nombre}" loading="lazy"
+             onerror="this.src='${FALLBACK}'">
+        ${badgeHTML}
+      </div>
+      <div class="pc-body">
+        <div class="pc-name">${p.nombre}</div>
+        <div class="pc-spec">${p.tipoOro}${p.piedra?' · '+p.piedra:''}</div>
+        <div class="pc-foot">
+          <div class="pc-price">${p.precioTexto||'A cotizar'}</div>
+          <button class="pc-btn" onclick="event.stopPropagation();wa('Hola, quiero cotizar: ${p.nombre}')">Cotizar</button>
+        </div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function filterCat(cat, btn) {
+  document.querySelectorAll('.ctab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  const list = cat === 'todos' ? allProducts : allProducts.filter(p => p.categoria === cat);
+  renderCatalog(list);
+}
+
+function showCatError() {
+  document.getElementById('cat-grid').innerHTML = `
+    <div class="cat-error">
+      <h3>No se pudo cargar el catálogo</h3>
+      <p>Verifica que el Google Sheet esté compartido como "Cualquier persona con el enlace puede ver".<br>
+      Si el problema persiste, contacta al administrador.</p>
+      <button class="btn btn-g" style="margin-top:16px;width:auto" onclick="loadSheet()">🔄 Reintentar</button>
+    </div>`;
+}
+
+// ── Modal con galería ─────────────────────────────
+function openModal(id) {
+  const p = allProducts.find(x => x.id === id);
+  if (!p) return;
+  const FALLBACK = 'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=600&q=80';
+  const imgs = [p.img1, p.img2, p.img3].filter(Boolean);
+  const mainSrc = imgs[0] || FALLBACK;
+
+  document.getElementById('mImgMain').innerHTML = `
+    <img id="mMainImg" src="${mainSrc}" alt="${p.altText||p.nombre}"
+         style="width:100%;height:100%;object-fit:cover;transition:opacity .3s"
+         onerror="this.src='${FALLBACK}'">
+    <button class="modal-close" onclick="closeModal()">✕</button>`;
+
+  const gallery = document.getElementById('mGallery');
+  if (imgs.length > 1) {
+    gallery.innerHTML = imgs.map((img, i) =>
+      `<div class="mg-thumb ${i===0?'active':''}" onclick="switchImg('${img}',this)">
+         <img src="${img}" alt="${p.nombre} ${i+1}" loading="lazy" onerror="this.src='${FALLBACK}'">
+       </div>`).join('');
+    gallery.style.display = 'flex';
+  } else {
+    gallery.innerHTML = '';
+    gallery.style.display = 'none';
+  }
+
+  document.getElementById('mBody').innerHTML = `
+    <div class="modal-tag">✦ Gold Blue · ${p.id}</div>
+    <div class="modal-title">${p.nombre}</div>
+    <div class="modal-price">${p.precioTexto||'A cotizar'}</div>
+    <div class="modal-hr"></div>
+    <div class="modal-specs">
+      <div class="ms"><label>Tipo de oro</label><span>${p.tipoOro||'—'}</span></div>
+      <div class="ms"><label>Piedra</label><span>${p.piedra||'—'}</span></div>
+      <div class="ms"><label>Tallas</label><span>${p.tallas||'—'}</span></div>
+      <div class="ms"><label>Peso</label><span>${p.peso?p.peso+'g':'—'}</span></div>
+      <div class="ms"><label>Entrega</label><span>${p.entrega||'—'}</span></div>
+      <div class="ms"><label>Garantía</label><span>${p.garantia||'—'}</span></div>
+    </div>
+    <div class="modal-hr"></div>
+    <div class="modal-acts">
+      <button class="ma ma-g" onclick="wa('Hola, quiero cotizar: ${p.nombre} (${p.id})')">💬 Cotizar por WhatsApp</button>
+      <button class="ma ma-o" onclick="wa('Hola, quiero personalizar: ${p.nombre} (${p.id})')">Personalizar diseño</button>
+    </div>`;
+
+  document.getElementById('modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function switchImg(src, thumb) {
+  const img = document.getElementById('mMainImg');
+  img.style.opacity = '0';
+  setTimeout(() => { img.src = src; img.style.opacity = '1'; }, 180);
+  document.querySelectorAll('.mg-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
+}
+
+function closeModal(e) {
+  if (!e || e.target === document.getElementById('modal')) {
+    document.getElementById('modal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+// ── Blog estático ─────────────────────────────────
+const BLOGS = [
+  {tag:'Guía de compra',title:'Cómo elegir un anillo de compromiso en República Dominicana',excerpt:'Materiales, presupuesto y cómo sorprender a tu pareja.',date:'Abr 2026',img:'https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=500&q=80'},
+  {tag:'Precios 2026',title:'¿Cuánto cuesta un anillo de compromiso en RD?',excerpt:'Rangos de precio reales desde anillos clásicos hasta alta joyería.',date:'Mar 2026',img:'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?w=500&q=80'},
+  {tag:'Materiales',title:'Oro 10k, 14k y 18k — ¿cuál elegir para tu anillo?',excerpt:'Comparamos durabilidad, precio y apariencia de cada quilataje.',date:'Mar 2026',img:'https://images.unsplash.com/photo-1573408301185-9519f94815f0?w=500&q=80'},
+  {tag:'Tips',title:'Cómo saber la talla de anillo sin que tu pareja lo sepa',excerpt:'Métodos creativos y confiables para antes de la propuesta.',date:'Feb 2026',img:'https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=500&q=80'},
+  {tag:'Comparativa',title:'Anillo personalizado vs catálogo: ¿cuál es mejor?',excerpt:'Ventajas y desventajas de cada opción según tu caso.',date:'Feb 2026',img:'https://images.unsplash.com/photo-1589128777073-263566ae5e4d?w=500&q=80'},
+  {tag:'Cuidados',title:'Cómo limpiar tu anillo de oro en casa',excerpt:'Consejos prácticos para conservar el brillo por años.',date:'Ene 2026',img:'https://images.unsplash.com/photo-1506630448388-4e683c67ddb0?w=500&q=80'},
+];
+document.getElementById('blog-grid').innerHTML = BLOGS.map(a =>
+  `<div class="blog-card rev" onclick="wa('Leí: ${a.title.replace(/'/g,'')}')">
+    <div class="blog-img"><img src="${a.img}" alt="${a.title}" loading="lazy"></div>
+    <div class="blog-body">
+      <div class="blog-tag">${a.tag}</div>
+      <div class="blog-title">${a.title}</div>
+      <div class="blog-excerpt">${a.excerpt}</div>
+      <div class="blog-foot"><span class="blog-date">${a.date}</span><span class="blog-read">Leer →</span></div>
+    </div>
+  </div>`).join('');
+
+// ── Proceso scroll ────────────────────────────────
+let curStg = 1;
+function setStg(n) {
+  if (n === curStg) return;
+  document.getElementById('sv'+curStg)?.classList.remove('on');
+  document.getElementById('sv'+n)?.classList.add('on');
+  curStg = n;
+  document.querySelectorAll('.psi').forEach(s => s.classList.remove('on'));
+  document.getElementById('psi'+n)?.classList.add('on');
+  const f = document.getElementById('pFill');
+  const nu = document.getElementById('pNum');
+  if (f) f.style.width = ((n/5)*100)+'%';
+  if (nu) nu.textContent = n;
+}
+function procTab(n, btn) {
+  document.querySelectorAll('.ptab').forEach(b => b.classList.remove('on'));
+  btn.classList.add('on');
+  document.querySelectorAll('.proc-card').forEach(c => c.classList.remove('show'));
+  document.getElementById('pc'+n)?.classList.add('show');
+}
+function applyLayout() {
+  const d = window.innerWidth >= 1024;
+  const mob = document.querySelector('.proc-mobile');
+  const psiW = document.getElementById('psiWrap');
+  if (mob)  mob.style.display  = d ? 'none' : 'block';
+  if (psiW) psiW.style.display = d ? 'block' : 'none';
+}
+applyLayout();
+window.addEventListener('resize', applyLayout);
+
+// ── Nav + Mobile menu ─────────────────────────────
+window.addEventListener('scroll', () => {
+  document.getElementById('nav').classList.toggle('up', scrollY > 40);
+}, {passive:true});
+
+function toggleMenu() {
+  const m = document.getElementById('mob');
+  const o = m.classList.toggle('open');
+  document.body.style.overflow = o ? 'hidden' : '';
+}
+
+// ── Scroll: reveal + proceso ──────────────────────
+function onScroll() {
+  const col = document.getElementById('procCol');
+  if (col && window.innerWidth >= 1024) {
+    const r = col.getBoundingClientRect();
+    const prog = Math.max(0, Math.min(1, (-r.top+100)/(col.scrollHeight-window.innerHeight+200)));
+    setStg(Math.max(1, Math.min(5, Math.ceil(prog*5)||1)));
+  }
+  document.querySelectorAll('.rev').forEach(el => {
+    if (el.getBoundingClientRect().top < window.innerHeight * .92) el.classList.add('in');
+  });
+}
+window.addEventListener('scroll', onScroll, {passive:true});
+onScroll();
+
+// ── Iniciar ───────────────────────────────────────
+loadSheet();
+
+</script>
+</body>
+</html>
